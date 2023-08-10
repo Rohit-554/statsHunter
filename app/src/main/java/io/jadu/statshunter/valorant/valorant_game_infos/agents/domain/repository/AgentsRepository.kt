@@ -6,6 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface AgentsRepository {
 
-    fun getAgentsInfo(): Flow<Resource<AgentInfo>>
+    suspend fun getAgentsInfo(): AgentInfo
 
 }
