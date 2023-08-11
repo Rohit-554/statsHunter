@@ -6,3 +6,10 @@ data class AgentInfoDto(
     val `data`: List<DataDto>,
     val status: Int
 )
+
+fun AgentInfoDto.toDomainAgentInfo(): AgentInfo {
+    return AgentInfo(
+        data = data.map { it.toDomainAgentInfo() },
+        status = status
+    )
+}

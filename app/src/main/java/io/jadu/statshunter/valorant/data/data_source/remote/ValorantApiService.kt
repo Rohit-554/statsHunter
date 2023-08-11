@@ -8,6 +8,6 @@ import retrofit2.http.GET
 interface ValorantApiService {
 
     @GET("agents")
-    suspend fun getAgentDetails():AgentInfo
+    suspend fun getAgentDetails():AgentInfoDto
 
 }

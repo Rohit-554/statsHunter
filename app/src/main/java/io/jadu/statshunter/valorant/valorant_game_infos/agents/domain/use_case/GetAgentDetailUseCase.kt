@@ -2,6 +2,7 @@ package io.jadu.statshunter.valorant.valorant_game_infos.agents.domain.use_case
 
 import android.util.Log
 import io.jadu.statshunter.valorant.core.utils.Resource
+import io.jadu.statshunter.valorant.valorant_game_infos.agents.data.data_source.remote.dto.toDomainAgentInfo
 import io.jadu.statshunter.valorant.valorant_game_infos.agents.domain.model.AgentInfo
 import io.jadu.statshunter.valorant.valorant_game_infos.agents.domain.repository.AgentsRepository
 import kotlinx.coroutines.flow.Flow
@@ -19,7 +20,7 @@ class GetAgentDetailUseCase(
     operator fun invoke(): Flow<Resource<AgentInfo>> =  flow{
         try {
             emit(Resource.Loading())
-            val response = repository.getAgentsInfo()
+            val response = repository.getAgentsInfo().toDomainAgentInfo()
             emit(Resource.Success(response))
         }catch (e:HttpException){
 
