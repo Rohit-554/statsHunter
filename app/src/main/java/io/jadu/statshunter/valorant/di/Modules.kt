@@ -12,6 +12,9 @@ import io.jadu.statshunter.valorant.valorant_game_infos.agents.domain.use_case.G
 import io.jadu.statshunter.valorant.valorant_game_infos.buddies.data.repository.BuddiesRepositoryImpl
 import io.jadu.statshunter.valorant.valorant_game_infos.buddies.domain.repository.BuddiesRepository
 import io.jadu.statshunter.valorant.valorant_game_infos.buddies.domain.use_case.GetBuddiesDetailUseCase
+import io.jadu.statshunter.valorant.valorant_game_infos.bundles.data.repository.BundleRepositoryImpl
+import io.jadu.statshunter.valorant.valorant_game_infos.bundles.domain.repository.BundleRepository
+import io.jadu.statshunter.valorant.valorant_game_infos.bundles.domain.use_case.GetBundlesUseCase
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -53,6 +56,18 @@ class Modules {
     @Singleton
     fun provideBuddiesRepository(api:ValorantApiService):BuddiesRepository{
         return BuddiesRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetBundlesUseCase(repository:BundleRepository): GetBundlesUseCase {
+        return GetBundlesUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideBundleRepository(api:ValorantApiService):BundleRepository{
+        return BundleRepositoryImpl(api)
     }
 
 }

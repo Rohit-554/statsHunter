@@ -61,6 +61,7 @@ dependencies {
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
 
+    //lifecycle
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion")
 
     //di
@@ -87,6 +88,10 @@ dependencies {
     //navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
+
+
+
+
 }
 kapt {
     correctErrorTypes = true
