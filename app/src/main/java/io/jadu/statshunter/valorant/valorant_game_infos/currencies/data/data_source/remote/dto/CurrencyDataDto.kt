@@ -1,23 +1,23 @@
 package io.jadu.statshunter.valorant.valorant_game_infos.currencies.data.data_source.remote.dto
 
+import io.jadu.statshunter.valorant.valorant_game_infos.currencies.domain.model.CurrencyData
+
 data class CurrencyDataDto(
-    val assetPath: String,
-    val displayIcon: String,
-    val displayName: String,
-    val displayNameSingular: String,
-    val largeIcon: String,
-    val uuid: String
+    val assetPath: String?,
+    val displayIcon: String?,
+    val displayName: String?,
+    val displayNameSingular: String?,
+    val largeIcon: String?,
+    val uuid: String?
 )
 
-fun CurrencyDataDto?.toDomainCurrencyData(): io.jadu.statshunter.valorant.valorant_game_infos.currencies.domain.model.CurrencyData? {
-    return this?.let {
-        io.jadu.statshunter.valorant.valorant_game_infos.currencies.domain.model.CurrencyData(
-            assetPath = it.assetPath,
-            displayIcon = it.displayIcon,
-            displayName = it.displayName,
-            displayNameSingular = it.displayNameSingular,
-            largeIcon = it.largeIcon,
-            uuid = it.uuid
-        )
-    }
+fun CurrencyDataDto?.toDomainCurrencyData(): CurrencyData {
+    return CurrencyData(
+        assetPath = this?.assetPath ?: "",
+        displayIcon = this?.displayIcon ?: "",
+        displayName = this?.displayName ?: "",
+        displayNameSingular = this?.displayNameSingular ?: "",
+        largeIcon = this?.largeIcon ?: "",
+        uuid = this?.uuid ?: ""
+    )
 }

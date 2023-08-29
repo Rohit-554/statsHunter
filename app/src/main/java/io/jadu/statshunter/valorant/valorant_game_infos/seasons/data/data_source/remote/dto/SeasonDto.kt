@@ -7,11 +7,9 @@ data class SeasonDto(
     val status: Int
 )
 
-fun SeasonDto?.toDomainSeason():Season? {
-    return this?.let {
-        Season(
-            data = it.`data`.mapNotNull { data -> data.toSeasonData() },
-            status = it.status
-        )
-    }
+fun SeasonDto?.toDomainSeason(): Season {
+    return Season(
+        data = this?.data?.map { it.toDomainSeasonData() } ?: listOf(),
+        status = this?.status ?: 0
+    )
 }

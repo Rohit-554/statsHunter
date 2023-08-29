@@ -3,33 +3,27 @@ package io.jadu.statshunter.valorant.valorant_game_infos.weapons.data.data_sourc
 import io.jadu.statshunter.valorant.valorant_game_infos.weapons.domain.model.Skin
 
 data class SkinDto(
-    val assetPath: String,
-    val chromas: List<ChromaDto>,
-    val contentTierUuid: String,
-    val displayIcon: String,
-    val displayName: String,
-    val levels: List<LevelDto>,
-    val themeUuid: String,
-    val uuid: String,
-    val wallpaper: String
+    val assetPath: String?,
+    val chromas: List<ChromaDto>?,
+    val contentTierUuid: String?,
+    val displayIcon: String?,
+    val displayName: String?,
+    val levels: List<LevelDto>?,
+    val themeUuid: String?,
+    val uuid: String?,
+    val wallpaper: String?,
 )
 
-fun SkinDto?.toDomainSkin(): Skin? {
-    return this?.let {
-        it.chromas.map { chromaDto -> chromaDto.toDomainChroma() }?.let { it1 ->
-            it.levels.map { levelDto -> levelDto.toDomainLevel() }?.let { it2 ->
-                Skin(
-                    assetPath = it.assetPath,
-                    chromas = it1,
-                    contentTierUuid = it.contentTierUuid,
-                    displayIcon = it.displayIcon,
-                    displayName = it.displayName,
-                    levels = it2,
-                    themeUuid = it.themeUuid,
-                    uuid = it.uuid,
-                    wallpaper = it.wallpaper
-                )
-            }
-        }
-    }
+fun SkinDto?.toDomainSkin(): Skin {
+    return Skin(
+        assetPath = this?.assetPath ?: "",
+        chromas = this?.chromas?.map { it.toDomainChroma() } ?: emptyList(),
+        contentTierUuid = this?.contentTierUuid ?: "",
+        displayIcon = this?.displayIcon ?: "",
+        displayName = this?.displayName ?: "",
+        levels = this?.levels?.map { it.toDomainLevel() } ?: emptyList(),
+        themeUuid = this?.themeUuid ?: "",
+        uuid = this?.uuid ?: "",
+        wallpaper = this?.wallpaper ?: ""
+    )
 }

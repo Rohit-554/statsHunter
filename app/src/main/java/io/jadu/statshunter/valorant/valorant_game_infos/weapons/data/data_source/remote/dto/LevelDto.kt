@@ -4,23 +4,21 @@ import io.jadu.statshunter.valorant.valorant_game_infos.weapons.domain.model.Lev
 
 
 data class LevelDto(
-    val assetPath: String,
-    val displayIcon: String,
-    val displayName: String,
-    val levelItem: String,
-    val streamedVideo: String,
-    val uuid: String
+    val assetPath: String?,
+    val displayIcon: String?,
+    val displayName: String?,
+    val levelItem: String?,
+    val streamedVideo: String?,
+    val uuid: String?
 )
 
-fun LevelDto?.toDomainLevel(): Level? {
-    return this?.let {
-        Level(
-            assetPath = it.assetPath,
-            displayIcon = it.displayIcon,
-            displayName = it.displayName,
-            levelItem = it.levelItem,
-            streamedVideo = it.streamedVideo,
-            uuid = it.uuid
-        )
-    }
+fun LevelDto?.toDomainLevel(): Level {
+    return Level(
+        assetPath = this?.assetPath ?: "",
+        displayIcon = this?.displayIcon ?: "",
+        displayName = this?.displayName ?: "",
+        levelItem = this?.levelItem ?: "",
+        streamedVideo = this?.streamedVideo ?: "",
+        uuid = this?.uuid ?: ""
+    )
 }

@@ -3,17 +3,14 @@ package io.jadu.statshunter.valorant.valorant_game_infos.contracts.data.data_sou
 import io.jadu.statshunter.valorant.valorant_game_infos.contracts.domain.model.Contracts
 
 data class ContractsDto(
-    val `data`: List<DataDto>,
-    val status: Int
+    val `data`: List<DataDto>?,
+    val status: Int?
 )
 
-fun ContractsDto?.toDomainContracts():Contracts?{
-    return this?.let {
-        it.data.map { dataDto -> dataDto.toDomainData() }.let { it1 ->
-            Contracts(
-                data = it1,
-                status = it.status
-            )
-        }
-    }
+fun ContractsDto?.toDomainContracts(): Contracts {
+    return Contracts(
+        data = this?.data?.map { it.toDomainData() } ?: emptyList(),
+        status = this?.status ?: 0
+    )
 }
+

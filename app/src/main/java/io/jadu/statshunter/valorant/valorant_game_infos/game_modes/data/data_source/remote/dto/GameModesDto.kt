@@ -3,17 +3,13 @@ package io.jadu.statshunter.valorant.valorant_game_infos.game_modes.data.data_so
 import io.jadu.statshunter.valorant.valorant_game_infos.game_modes.domain.model.GameModes
 
 data class GameModesDto(
-    val `data`: List<GameModeDataDto>,
-    val status: Int
+    val `data`: List<GameModeDataDto>?,
+    val status: Int?
 )
 
-fun GameModesDto?.toDomainEvents(): GameModes? {
-    return this?.let {
-        it.data.map { gameModeDataDto -> gameModeDataDto.toDomainGameModeData() }.let { it1 ->
-            GameModes(
-                data = it1,
-                status = it.status
-            )
-        }
-    }
+fun GameModesDto?.toDomainGameModes(): GameModes {
+    return GameModes(
+        data = this?.data?.map { it.toDomainGameModeData() } ?: emptyList(),
+        status = this?.status ?: 0
+    )
 }

@@ -3,15 +3,13 @@ package io.jadu.statshunter.valorant.valorant_game_infos.maps.data.data_source.r
 import io.jadu.statshunter.valorant.valorant_game_infos.maps.domain.models.Location
 
 data class LocationDto(
-    val x: Double,
-    val y: Double
+    val x: Double?,
+    val y: Double?
 )
 
-fun LocationDto?.toDomainLocation(): Location? {
-    return this?.let {
-        Location(
-            x = it.x,
-            y = it.y
-        )
-    }
+fun LocationDto?.toDomainLocation(): Location{
+    return Location(
+        x = this?.x ?: 0.0,
+        y = this?.y ?: 0.0
+    )
 }

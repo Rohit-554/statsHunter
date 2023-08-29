@@ -3,25 +3,22 @@ package io.jadu.statshunter.valorant.valorant_game_infos.gears.data.data_source.
 import io.jadu.statshunter.valorant.valorant_game_infos.gears.domain.models.GearsData
 
 data class GearsDataDto(
-    val assetPath: String,
-    val description: String,
-    val displayIcon: String,
-    val displayName: String,
-    val shopData: ShopDataDto,
-    val uuid: String
+    val assetPath: String?,
+    val description: String?,
+    val displayIcon: String?,
+    val displayName: String?,
+    val shopData: ShopDataDto?,
+    val uuid: String?
 )
 
-fun GearsDataDto?.toDomainGearsData(): GearsData? {
-    return this?.let {
-        it.shopData.toDomainShopData()?.let { it1 ->
-            GearsData(
-                assetPath = it.assetPath,
-                description = it.description,
-                displayIcon = it.displayIcon,
-                displayName = it.displayName,
-                shopData = it1,
-                uuid = it.uuid
-            )
-        }
-    }
+fun GearsDataDto?.toDomainGearsData(): GearsData {
+    return GearsData(
+        assetPath = this?.assetPath ?: "",
+        description = this?.description ?: "",
+        displayIcon = this?.displayIcon ?: "",
+        displayName = this?.displayName ?: "",
+        shopData = this?.shopData?.toDomainShopData() ?: ShopDataDto("",false,",","",0,"","","","").toDomainShopData(),
+        uuid = this?.uuid ?: ""
+    )
+
 }

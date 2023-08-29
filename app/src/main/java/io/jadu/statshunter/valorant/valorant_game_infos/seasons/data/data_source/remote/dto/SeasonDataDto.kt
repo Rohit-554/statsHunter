@@ -3,25 +3,23 @@ package io.jadu.statshunter.valorant.valorant_game_infos.seasons.data.data_sourc
 import io.jadu.statshunter.valorant.valorant_game_infos.seasons.domain.models.SeasonData
 
 data class SeasonDataDto(
-    val assetPath: String,
-    val displayName: String,
-    val endTime: String,
-    val parentUuid: String,
-    val startTime: String,
-    val type: String,
-    val uuid: String
+    val assetPath: String?,
+    val displayName: String?,
+    val endTime: String?,
+    val parentUuid: String?,
+    val startTime: String?,
+    val type: String?,
+    val uuid: String?
 )
 
-fun SeasonDataDto?.toSeasonData(): SeasonData? {
-    return this?.let {
-        SeasonData(
-            assetPath = it.assetPath,
-            displayName = it.displayName,
-            endTime = it.endTime,
-            parentUuid = it.parentUuid,
-            startTime = it.startTime,
-            type = it.type,
-            uuid = it.uuid
-        )
-    }
+fun SeasonDataDto?.toDomainSeasonData(): SeasonData {
+    return SeasonData(
+        assetPath = this?.assetPath ?: "",
+        displayName = this?.displayName ?: "",
+        endTime = this?.endTime ?: "",
+        parentUuid = this?.parentUuid ?: "",
+        startTime = this?.startTime ?: "",
+        type = this?.type ?: "",
+        uuid = this?.uuid ?: ""
+    )
 }

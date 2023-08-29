@@ -3,19 +3,17 @@ package io.jadu.statshunter.valorant.valorant_game_infos.contracts.data.data_sou
 import io.jadu.statshunter.valorant.valorant_game_infos.contracts.domain.model.FreeReward
 
 data class FreeRewardDto(
-    val amount: Int,
-    val isHighlighted: Boolean,
-    val type: String,
-    val uuid: String
+    val amount: Int?,
+    val isHighlighted: Boolean?,
+    val type: String?,
+    val uuid: String?
 )
 
-fun FreeRewardDto?.toDomainFreeReward():FreeReward?{
-    return this?.let {
-        FreeReward(
-            amount = it.amount,
-            isHighlighted = it.isHighlighted,
-            type = it.type,
-            uuid = it.uuid
-        )
-    }
+fun FreeRewardDto?.toDomainFreeReward(): FreeReward {
+    return FreeReward(
+        amount = this?.amount ?: 0,
+        isHighlighted = this?.isHighlighted ?: false,
+        type = this?.type ?: "",
+        uuid = this?.uuid ?: ""
+    )
 }

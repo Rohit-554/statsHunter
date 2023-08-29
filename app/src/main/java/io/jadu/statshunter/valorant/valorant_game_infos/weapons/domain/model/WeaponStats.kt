@@ -1,6 +1,7 @@
 package io.jadu.statshunter.valorant.valorant_game_infos.weapons.domain.model
 
 data class WeaponStats(
+
     val adsStats: AdsStats,
     val airBurstStats: AirBurstStats,
     val altFireType: String,

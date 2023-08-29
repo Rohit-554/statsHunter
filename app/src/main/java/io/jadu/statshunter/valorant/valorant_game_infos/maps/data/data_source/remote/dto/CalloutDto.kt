@@ -3,19 +3,15 @@ package io.jadu.statshunter.valorant.valorant_game_infos.maps.data.data_source.r
 import io.jadu.statshunter.valorant.valorant_game_infos.maps.domain.models.Callout
 
 data class CalloutDto(
-    val location: LocationDto,
-    val regionName: String,
-    val superRegionName: String
+    val location: LocationDto?,
+    val regionName: String?,
+    val superRegionName: String?
 )
 
-fun CalloutDto?.toDomainCallout(): Callout? {
-    return this?.let {
-        it.location.toDomainLocation()?.let { it1 ->
-            Callout(
-                location = it1,
-                regionName = it.regionName,
-                superRegionName = it.superRegionName
-            )
-        }
-    }
+fun CalloutDto?.toDomainCallout(): Callout {
+    return Callout(
+        location = this?.location?.toDomainLocation() ?: LocationDto(0.0,0.0).toDomainLocation(),
+        regionName = this?.regionName ?: "",
+        superRegionName = this?.superRegionName ?: ""
+    )
 }
