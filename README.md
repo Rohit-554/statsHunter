@@ -27,8 +27,12 @@ statsHunter is more than just an app; it's a gateway to the vibrant and competit
 ## For Developers & Contributors
 
 Everyone is welcome to contribute to the project your single line of code can help many 
-Read the contribution.md page for more details
+Read the [contribution.md](https://github.com/Rohit-554/statsHunter/blob/master/contribution.md) page for more details
 
+## For Designers and writers
+
+If you are a UX/UI or a writer you can still contribute to this project and you have a great project to showcase 
+checkout designerContributer.md
 
 ## Coming Soon to Your Device
 Stay tuned as we work tirelessly to bring you the most comprehensive and user-friendly Valorant companion app. Elevate your gameplay, connect with the community, and become a true statsHunter.
