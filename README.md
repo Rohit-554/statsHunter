@@ -2,7 +2,7 @@
 
 Your Ultimate Valorant Gameplay Companion
 
-![StatsHunter Logo](https://github.com/Rohit-554/statsHunter/assets/48874687/dcd06462-785a-4d13-9c84-5449baa895eb)
+![StatsHunter Logo](https://github.com/Rohit-554/statsHunter/assets/48874687/240e3719-8bc7-4e42-a069-230b1a74a487)
 
 ## About the Project
 
