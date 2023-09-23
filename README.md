@@ -34,5 +34,3 @@ Read the contribution.md page for more details
 Stay tuned as we work tirelessly to bring you the most comprehensive and user-friendly Valorant companion app. Elevate your gameplay, connect with the community, and become a true statsHunter.
 
 
-
-
