@@ -32,6 +32,7 @@ StatsHunter is more than just an app; it's a gateway to the vibrant and competit
 
 - **Kotlin:** Our primary programming language for Android app development.
 - **Android Studio:** The integrated development environment (IDE) for Android app development.
+- **Compose:** The project is migrated from Xml to Compose
 - **XML:** Used for defining UI layouts and resources.
 - **Dependency Injection:** Employed for efficient management of app dependencies.
 - **MVVM (Model-View-ViewModel):** Architecture pattern for separating UI from business logic.
