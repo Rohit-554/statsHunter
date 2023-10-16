@@ -4,8 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".valorant.onboardingscreens.OnBoardingScreens">
+    android:background="@color/appTheme"
+    tools:context=".valorant.onboardingscreens.OnBoardingScreensFragment">
 
-<!--    Use viewpager 2 to display the onboarding screens-->
-
+    <androidx.compose.ui.platform.ComposeView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/composeView"
+        />
 </androidx.appcompat.widget.LinearLayoutCompat>
